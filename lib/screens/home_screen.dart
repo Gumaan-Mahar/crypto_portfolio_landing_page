@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_landing_page/screens/content_screen.dart';
+import 'package:portfolio_landing_page/screens/ContentScreen/content_screen.dart';
 import 'package:portfolio_landing_page/screens/footer_screen.dart';
 import 'package:portfolio_landing_page/screens/header_screen.dart';
 
@@ -76,7 +76,9 @@ class HomeScreen extends StatelessWidget {
                       HeaderScreen(
                         titleText: titleText,
                       ),
-                      const ContentScreen(),
+                      ContentScreen(
+                        labelText: titleText,
+                      ),
                       const FooterScreen(),
                     ],
                   ),

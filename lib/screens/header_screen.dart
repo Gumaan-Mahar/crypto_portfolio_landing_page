@@ -28,7 +28,7 @@ class HeaderScreen extends StatelessWidget {
                         ? screenSize.height * 1
                         : screenSize.height * 0.8,
                     width: screenSize.width,
-                    color: const Color(0xFF3734A9),
+                    color: primaryColor,
                     child: Stack(
                       children: [
                         Positioned(
@@ -243,8 +243,10 @@ class HeaderScreen extends StatelessWidget {
         Positioned(
           top: screenSize.width >= 768
               ? screenSize.height * 0.3
-              : screenSize.height * 0.2,
-          left: screenSize.width * 0.22,
+              : screenSize.height * 0.1,
+          left: screenSize.width >= 768
+              ? screenSize.width * 0.22
+              : screenSize.width * 0.76,
           child: SvgPicture.asset(
             'assets/images/Vector_363.svg',
             width: screenSize.width >= 768
@@ -253,11 +255,17 @@ class HeaderScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: screenSize.height * 0.24,
-          left: screenSize.width * 0.12,
+          top: screenSize.width >= 768
+              ? screenSize.height * 0.24
+              : screenSize.height * 0.4,
+          left: screenSize.width >= 768
+              ? screenSize.width * 0.12
+              : screenSize.width * 0.16,
           child: SvgPicture.asset(
             'assets/images/Vector_364.svg',
-            width: screenSize.width * 0.024,
+            width: screenSize.width >= 768
+                ? screenSize.width * 0.024
+                : screenSize.width * 0.05,
           ),
         ),
         Positioned(
@@ -265,7 +273,9 @@ class HeaderScreen extends StatelessWidget {
           left: 0,
           child: SvgPicture.asset(
             'assets/images/Vector_365.svg',
-            width: screenSize.width >= 768 ? screenSize.width * 0.03 : screenSize.width * 0.2,
+            width: screenSize.width >= 768
+                ? screenSize.width * 0.03
+                : screenSize.width * 0.05,
           ),
         ),
         Positioned(
@@ -293,7 +303,9 @@ class HeaderScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: screenSize.height * 0.8,
+          top: screenSize.width >= 768
+              ? screenSize.height * 0.8
+              : screenSize.height * 0.6,
           right: 0,
           child: SvgPicture.asset(
             'assets/images/Vector_368.svg',
@@ -301,7 +313,9 @@ class HeaderScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: screenSize.height * 0.38,
+          top: screenSize.width >= 768
+              ? screenSize.height * 0.38
+              : screenSize.height * 0.32,
           right: screenSize.width * 0.1,
           child: SvgPicture.asset(
             'assets/images/Ellipse_02.svg',
