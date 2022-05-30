@@ -287,7 +287,9 @@ class HeaderScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: screenSize.height * 0.8,
+          top: screenSize.width >= 768
+              ? screenSize.height * 0.8
+              : screenSize.height * 0.1,
           left: screenSize.width * 0.18,
           child: SvgPicture.asset(
             'assets/images/Vector_367.svg',

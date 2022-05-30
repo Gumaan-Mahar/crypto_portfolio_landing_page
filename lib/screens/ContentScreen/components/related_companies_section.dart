@@ -15,39 +15,56 @@ class RelatedCompaniesSection extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 8.0),
           child: Text(
             'Over 32k+ software businesses growing with $labelText.',
-            style: const TextStyle(fontSize: 13, color: Colors.black),
+            style: const TextStyle(fontSize: 14, color: Colors.black),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Wrap(
+          spacing: screenSize.width * 0.04,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          alignment: WrapAlignment.center,
+          runSpacing: screenSize.width * 0.02,
           children: [
             SvgPicture.asset(
               'assets/images/OpenZeppelin.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
             SvgPicture.asset(
               'assets/images/Oracle.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
             SvgPicture.asset(
               'assets/images/Morpheus.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
             SvgPicture.asset(
               'assets/images/Samsung.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
             SvgPicture.asset(
               'assets/images/Monday.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
             SvgPicture.asset(
               'assets/images/Segment.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
             SvgPicture.asset(
               'assets/images/Protonet.svg',
-              width: screenSize.width * 0.08,
+              width: screenSize.width >= 768
+                  ? screenSize.width * 0.1
+                  : screenSize.width * 0.18,
             ),
           ],
         ),

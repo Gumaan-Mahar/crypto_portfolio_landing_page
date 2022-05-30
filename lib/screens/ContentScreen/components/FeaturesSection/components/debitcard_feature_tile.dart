@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_landing_page/constants.dart';
 import 'package:portfolio_landing_page/widgets/custom_elevated_button.dart';
 
@@ -16,27 +15,22 @@ class DebitCardFeautreTile extends StatelessWidget {
       children: [
         screenSize.width >= 768
             ? const SizedBox.shrink()
-            : Padding(
-                padding:
-                    EdgeInsets.only(left: screenSize.width * 0.06, bottom: 2.0),
-                child: Container(
-                  color: Colors.amber,
-                  child: SvgPicture.asset(
-                    'assets/images/DebitCard.svg',
-                    width: screenSize.width >= 768
-                        ? screenSize.width * 0.6
-                        : screenSize.width,
-                    // height: screenSize.height * 0.5,
-                    fit: BoxFit.fill,
-                  ),
-                ),
+            : Image.asset(
+                'assets/images/Illustration_02.png',
+                width: screenSize.width,
+                // height: screenSize.height * 0.6,
+                fit: BoxFit.fill,
               ),
         Container(
           width: screenSize.width >= 768
               ? screenSize.width * 0.5
               : screenSize.width * 0.8,
-          height: screenSize.height * 0.3,
-          color: Colors.green,
+          height: screenSize.height * 0.35,
+          color: Colors.transparent,
+          padding: EdgeInsets.symmetric(
+              horizontal: screenSize.width >= 768
+                  ? screenSize.width * 0.08
+                  : screenSize.width * 0.01),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -46,11 +40,13 @@ class DebitCardFeautreTile extends StatelessWidget {
                 style:
                     TextStyle(color: primaryColor, fontWeight: FontWeight.w600),
               ),
-              const Text(
+               Text(
                 'All payments can be managed from one account',
                 style: TextStyle(
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.w600,
+                    fontSize: screenSize.width >= 768
+                        ? screenSize.width * 0.018
+                        : screenSize.width * 0.05,
+                    fontWeight: FontWeight.w700,
                     color: Colors.black),
               ),
               const Text(
@@ -66,16 +62,10 @@ class DebitCardFeautreTile extends StatelessWidget {
           ),
         ),
         screenSize.width >= 768
-            ? Padding(
-                padding: EdgeInsets.only(left: screenSize.width * 0.1),
-                child: SvgPicture.asset(
-                  'assets/images/DebitCard.svg',
-                  width: screenSize.width >= 768
-                      ? screenSize.width * 0.6
-                      : screenSize.width,
-                  height: screenSize.height * 0.8,
-                  fit: BoxFit.fill,
-                ),
+            ? Image.asset(
+                'assets/images/Illustration_02.png',
+                width: screenSize.width * 0.5,
+                fit: BoxFit.fill,
               )
             : const SizedBox.shrink(),
       ],

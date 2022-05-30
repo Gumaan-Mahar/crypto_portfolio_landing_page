@@ -9,13 +9,21 @@ class FeaturesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12.0),
-      child: Column(
-        children: [
-          PortfolioFeatureTile(labelText: labelText),
-          const DebitCardFeautreTile(),
-        ],
+    final Size screenSize = MediaQuery.of(context).size;
+    return Container(
+      width: screenSize.width,
+      height: screenSize.width >= 768
+          ? screenSize.height * 1.4
+          : screenSize.height * 1.8,
+      color: Colors.transparent,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: Column(
+          children: [
+            PortfolioFeatureTile(labelText: labelText),
+            const DebitCardFeautreTile(),
+          ],
+        ),
       ),
     );
   }

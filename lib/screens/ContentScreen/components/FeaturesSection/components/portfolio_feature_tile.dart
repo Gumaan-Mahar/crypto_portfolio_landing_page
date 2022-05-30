@@ -1,5 +1,6 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_landing_page/constants.dart';
 
 import '../../../../../widgets/custom_elevated_button.dart';
@@ -15,17 +16,22 @@ class PortfolioFeatureTile extends StatelessWidget {
     return Flex(
       direction: screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
       children: [
-        Image.asset(
-          'assets/images/Illustration.png',
-          width: screenSize.width >= 768
-              ? screenSize.width * 0.6
-              : screenSize.width,
-          height: screenSize.height * 0.8,
-          fit: BoxFit.fill,
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenSize.width >= 768
+                  ? screenSize.width * 0.06
+                  : screenSize.width * 0.04,
+              vertical: screenSize.height * 0.02),
+          child: Image.asset(
+            'assets/images/Illustration_01.png',
+            width: screenSize.width >= 768
+                ? screenSize.width * 0.5
+                : screenSize.width,
+          ),
         ),
         Container(
           width: screenSize.width >= 768
-              ? screenSize.width * 0.4
+              ? screenSize.width * 0.3
               : screenSize.width * 0.8,
           height: screenSize.height * 0.35,
           color: Colors.transparent,
@@ -40,9 +46,11 @@ class PortfolioFeatureTile extends StatelessWidget {
               ),
               Text(
                 'All of your portfolios are linked to your $labelText account',
-                style: const TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w600,
+                style: TextStyle(
+                    fontSize: screenSize.width >= 768
+                        ? screenSize.width * 0.018
+                        : screenSize.width * 0.05,
+                    fontWeight: FontWeight.w700,
                     color: Colors.black),
               ),
               const Text(
