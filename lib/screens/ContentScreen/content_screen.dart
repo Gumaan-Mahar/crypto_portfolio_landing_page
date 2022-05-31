@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_landing_page/constants.dart';
-import 'package:portfolio_landing_page/screens/ContentScreen/components/FeaturesSection/features_section.dart';
 import 'package:portfolio_landing_page/screens/ContentScreen/components/related_companies_section.dart';
+import 'package:portfolio_landing_page/screens/ContentScreen/components/services_section.dart';
+import 'debitcard_feature_tile.dart';
+import 'portfolio_feature_tile.dart';
 
 class ContentScreen extends StatelessWidget {
   final String labelText;
@@ -19,9 +21,9 @@ class ContentScreen extends StatelessWidget {
               RelatedCompaniesSection(
                 labelText: labelText,
               ),
-              FeaturesSection(
-                labelText: labelText,
-              ),
+              PortfolioFeatureTile(labelText: labelText),
+              const DebitCardFeautreTile(),
+              const ServicesSection(),
             ],
           );
         },

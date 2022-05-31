@@ -16,6 +16,7 @@ class RelatedCompaniesSection extends StatelessWidget {
           child: Text(
             'Over 32k+ software businesses growing with $labelText.',
             style: const TextStyle(fontSize: 14, color: Colors.black),
+            textAlign: TextAlign.center,
           ),
         ),
         Wrap(
