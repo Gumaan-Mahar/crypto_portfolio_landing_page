@@ -333,8 +333,8 @@ class HeaderScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: screenSize.width <= 420 ? 8 : 0),
-            child: SvgPicture.asset(
-              'assets/images/header_image.svg',
+            child: Image.asset(
+              'assets/images/header_image.png',
               width: screenSize.width,
               height: screenSize.width >= 768
                   ? screenSize.height * 0.8

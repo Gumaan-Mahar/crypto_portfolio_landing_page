@@ -29,6 +29,7 @@ class ServicesSection extends StatelessWidget {
               direction:
                   screenSize.width >= 480 ? Axis.horizontal : Axis.vertical,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   width: screenSize.width >= 480
@@ -37,6 +38,7 @@ class ServicesSection extends StatelessWidget {
                   color: Colors.transparent,
                   padding: EdgeInsets.only(
                       bottom: screenSize.width <= 480 ? 16.0 : 0.0),
+                  alignment: Alignment.center,
                   child: Text(
                     "Yet preference connection unpleasant yet melancholy but end appearence",
                     style: TextStyle(
@@ -47,8 +49,16 @@ class ServicesSection extends StatelessWidget {
                     ),
                   ),
                 ),
-                CustomElevatedButton(
-                    handleOnPressed: () {}, labelText: 'Get Started Now'),
+                Padding(
+                  padding: EdgeInsets.only(
+                    right:
+                        screenSize.width >= 480 ? screenSize.width * 0.02 : 0.0,
+                    bottom:
+                        screenSize.width >= 480 ? screenSize.width * 0.02 : 0.0,
+                  ),
+                  child: CustomElevatedButton(
+                      handleOnPressed: () {}, labelText: 'Get Started Now'),
+                ),
               ],
             ),
             Expanded(
@@ -214,7 +224,9 @@ class ReuseableSerialNoContainer extends StatelessWidget {
       child: Text(
         sNo,
         style: TextStyle(
-          fontSize: screenSize.width >= 480 ? 22 : 16,
+          fontSize: screenSize.width >= 768
+              ? screenSize.width * 0.018
+              : screenSize.width * 0.028,
           fontWeight: FontWeight.bold,
         ),
       ),
