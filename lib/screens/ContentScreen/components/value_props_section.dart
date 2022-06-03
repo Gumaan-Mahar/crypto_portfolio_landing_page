@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_landing_page/constants.dart';
+import 'package:portfolio_landing_page/widgets/custom_elevated_button.dart';
 
 class ValuePropsSection extends StatelessWidget {
   const ValuePropsSection({Key? key}) : super(key: key);
@@ -15,7 +17,8 @@ class ValuePropsSection extends StatelessWidget {
             border: Border.all(color: Colors.grey.shade300, width: 1.5),
             borderRadius: BorderRadius.circular(4.0),
           ),
-          margin: EdgeInsets.symmetric(vertical: screenSize.height * 0.1),
+          margin: EdgeInsets.only(
+              top: screenSize.height * 0.1, bottom: screenSize.height * 0.06),
           child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: screenSize.width * 0.015,
@@ -62,7 +65,119 @@ class ValuePropsSection extends StatelessWidget {
             ),
           ),
         ),
+        Flex(
+          direction: screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ReuseableValuePropsContainer(
+              screenSize: screenSize,
+              titleText: 'Outward clothes promise at gravity.',
+              onPressed: () {},
+              descriptionText:
+                  'End-to-end payments and financial management in a single solution. Meet the right platform to help others realize.',
+            ),
+            SizedBox(
+              width: screenSize.width * 0.04,
+              height: screenSize.height * 0.04,
+            ),
+            ReuseableValuePropsContainer(
+              screenSize: screenSize,
+              titleText: 'Sufficient particular impossible.',
+              onPressed: () {},
+              descriptionText:
+                  'End-to-end payments and financial management in a single solution. Meet the right platform to help others realize.',
+            ),
+          ],
+        ),
       ],
+    );
+  }
+}
+
+class ReuseableValuePropsContainer extends StatelessWidget {
+  const ReuseableValuePropsContainer({
+    Key? key,
+    required this.screenSize,
+    required this.titleText,
+    required this.descriptionText,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final Size screenSize;
+  final String titleText;
+  final String descriptionText;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5.0,
+      shadowColor: Colors.grey.withOpacity(0.4),
+      child: Container(
+        width: screenSize.width >= 768
+            ? screenSize.width * 0.4
+            : screenSize.width * 0.8,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          // border: Border.all(
+          //   color: Colors.grey.shade400,
+          // ),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.grey.shade400,
+          //     offset: const Offset(0.8, 0.8),
+          //     blurRadius: 1,
+          //     spreadRadius: 0.8,
+          //   ),
+          // ],
+        ),
+        padding: EdgeInsets.symmetric(
+            vertical: screenSize.height * 0.04,
+            horizontal: screenSize.width * 0.02),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: screenSize.width * 0.6,
+              color: Colors.transparent,
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(bottom: screenSize.height * 0.012),
+              child: Text(
+                titleText,
+                style: TextStyle(
+                    fontSize: screenSize.width >= 768
+                        ? screenSize.width * 0.015
+                        : screenSize.width * 0.03,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+            ),
+            Container(
+              width: screenSize.width * 0.7,
+              color: Colors.transparent,
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(bottom: screenSize.height * 0.02),
+              child: Text(
+                descriptionText,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: screenSize.width >= 768
+                      ? screenSize.width * 0.012
+                      : screenSize.width * 0.02,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            CustomElevatedButton(
+              handleOnPressed: onPressed,
+              labelText: 'Read More',
+              backgroundColor: primaryColor,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -99,7 +214,7 @@ class ReuseableIconTextContainer extends StatelessWidget {
               icon,
               size: screenSize.width >= 768
                   ? screenSize.width * 0.03
-                  : screenSize.width * 0.07,
+                  : screenSize.width * 0.05,
               color: Colors.black,
             ),
           ),
@@ -113,7 +228,7 @@ class ReuseableIconTextContainer extends StatelessWidget {
               style: TextStyle(
                   fontSize: screenSize.width >= 768
                       ? screenSize.width * 0.013
-                      : screenSize.width * 0.03,
+                      : screenSize.width * 0.022,
                   color: Colors.grey),
             ),
           ),

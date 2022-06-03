@@ -12,8 +12,11 @@ class ContentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     return Container(
-      height: MediaQuery.of(context).size.height * 5,
+      height: screenSize.width >= 768
+          ? screenSize.height * 3.5
+          : screenSize.height * 6,
       color: contentBackgroundColor,
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
