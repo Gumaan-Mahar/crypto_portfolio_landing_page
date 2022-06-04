@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_landing_page/constants.dart';
+import 'package:portfolio_landing_page/screens/ContentScreen/components/recent_blogs_section.dart';
 import 'package:portfolio_landing_page/screens/ContentScreen/components/related_companies_section.dart';
 import 'package:portfolio_landing_page/screens/ContentScreen/components/services_section.dart';
 import 'package:portfolio_landing_page/screens/ContentScreen/components/value_props_section.dart';
@@ -15,7 +16,7 @@ class ContentScreen extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     return Container(
       height: screenSize.width >= 768
-          ? screenSize.height * 3.5
+          ? screenSize.height * 4.5
           : screenSize.height * 6,
       color: contentBackgroundColor,
       child: LayoutBuilder(
@@ -29,6 +30,7 @@ class ContentScreen extends StatelessWidget {
               const DebitCardFeautreTile(),
               const ServicesSection(),
               const ValuePropsSection(),
+              const RecentBlogSection(),
             ],
           );
         },
