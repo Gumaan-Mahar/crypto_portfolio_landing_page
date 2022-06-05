@@ -36,12 +36,10 @@ class ValuePropsSection extends StatelessWidget {
                       ? screenSize.width * 0.2
                       : screenSize.width * 0.6,
                   color: Colors.transparent,
-                  child: Text(
+                  child: const Text(
                     'Germany based & GDPR Complaint',
                     style: TextStyle(
-                        fontSize: screenSize.width >= 768
-                            ? screenSize.width * 0.015
-                            : screenSize.width * 0.035,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
@@ -120,17 +118,6 @@ class ReuseableValuePropsContainer extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8.0),
-          // border: Border.all(
-          //   color: Colors.grey.shade400,
-          // ),
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Colors.grey.shade400,
-          //     offset: const Offset(0.8, 0.8),
-          //     blurRadius: 1,
-          //     spreadRadius: 0.8,
-          //   ),
-          // ],
         ),
         padding: EdgeInsets.symmetric(
             vertical: screenSize.height * 0.04,
@@ -146,10 +133,8 @@ class ReuseableValuePropsContainer extends StatelessWidget {
               padding: EdgeInsets.only(bottom: screenSize.height * 0.012),
               child: Text(
                 titleText,
-                style: TextStyle(
-                    fontSize: screenSize.width >= 768
-                        ? screenSize.width * 0.015
-                        : screenSize.width * 0.03,
+                style: const TextStyle(
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
@@ -162,10 +147,8 @@ class ReuseableValuePropsContainer extends StatelessWidget {
               child: Text(
                 descriptionText,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: screenSize.width >= 768
-                      ? screenSize.width * 0.012
-                      : screenSize.width * 0.02,
+                style: const TextStyle(
+                  fontSize: 12,
                   color: Colors.grey,
                 ),
               ),
@@ -225,11 +208,7 @@ class ReuseableIconTextContainer extends StatelessWidget {
             color: Colors.transparent,
             child: Text(
               text,
-              style: TextStyle(
-                  fontSize: screenSize.width >= 768
-                      ? screenSize.width * 0.013
-                      : screenSize.width * 0.022,
-                  color: Colors.grey),
+              style: const TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ),
         ],

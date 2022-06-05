@@ -11,87 +11,105 @@ class RecentBlogSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(
-              left: screenSize.width * 0.05, top: screenSize.height * 0.04),
-          child: Text(
+              left: screenSize.width >= 768 ? screenSize.width * 0.05 : 0.0,
+              top: screenSize.height * 0.04),
+          child: const Text(
             'Recent Blogs',
             style: TextStyle(
-              fontSize: screenSize.width * 0.02,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: screenSize.width * 0.07),
+          padding: EdgeInsets.only(
+              left: screenSize.width >= 768
+                  ? screenSize.width * 0.07
+                  : screenSize.width * 0.04),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: screenSize.width >= 768
-                    ? screenSize.width * 0.6
-                    : screenSize.width * 0.8,
-                height: screenSize.height * 0.3,
+                    ? screenSize.width * 0.8
+                    : screenSize.width * 0.85,
+                height: screenSize.width >= 768
+                    ? screenSize.height * 0.3
+                    : screenSize.height * 0.55,
                 color: Colors.white,
-                margin: EdgeInsets.symmetric(
-                  vertical: screenSize.height * 0.02,
+                padding: EdgeInsets.only(
+                  bottom:
+                      screenSize.width >= 768 ? 0.0 : screenSize.width * 0.02,
                 ),
-                child: Row(
+                margin: EdgeInsets.symmetric(
+                  vertical: screenSize.height * 0.04,
+                ),
+                child: Flex(
+                  direction:
+                      screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
                   children: [
-                    Expanded(
-                      child: Container(
-                        width: screenSize.width * 0.6,
-                        color: Colors.transparent,
-                        padding: EdgeInsets.only(
-                            left: screenSize.width * 0.012,
-                            top: screenSize.height * 0.02,
-                            bottom: screenSize.height * 0.02),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: screenSize.height * 0.02),
-                                  child: Text(
-                                    'BEST PRACTICES',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: screenSize.width * 0.01,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                                Text(
-                                  'In design active template  be uneasy. Thirty for remove plenty regard',
+                    Container(
+                      width: screenSize.width >= 768
+                          ? screenSize.width * 0.5
+                          : screenSize.width * 0.8,
+                      color: Colors.transparent,
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    bottom: screenSize.height * 0.02),
+                                child: const Text(
+                                  'BEST PRACTICES',
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: screenSize.width * 0.015,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w700),
                                 ),
-                              ],
-                            ),
-                            Row(
-                              children: const [
-                                Text(
-                                  'Read More',
-                                  style: TextStyle(color: Colors.black26),
-                                ),
-                                Icon(
-                                  Icons.arrow_forward,
-                                  color: Colors.black26,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              const Text(
+                                'In design active template  be uneasy. Thirty for remove plenty regard',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          ),
+                          screenSize.width >= 768
+                              ? Row(
+                                  children: const [
+                                    Text(
+                                      'Read More',
+                                      style: TextStyle(color: Colors.black26),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.black26,
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox.shrink(),
+                        ],
                       ),
                     ),
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/blog_01.png',
-                        alignment: Alignment.centerRight,
-                      ),
+                    Image.asset(
+                      'assets/images/blog_01.png',
+                      width: screenSize.width >= 768
+                          ? screenSize.width * 0.3
+                          : screenSize.width * 0.85,
+                      alignment: screenSize.width >= 768
+                          ? Alignment.centerRight
+                          : Alignment.center,
+                      fit: screenSize.width >= 768
+                          ? BoxFit.fitWidth
+                          : BoxFit.fitHeight,
                     ),
                   ],
                 ),
@@ -114,7 +132,7 @@ class RecentBlogSection extends StatelessWidget {
                   ReuseableBlogContainer(
                     screenSize: screenSize,
                     titleText:
-                        'Wise busy path both park when an ye no. Nay likely her length.',
+                        'Wise busy path both park when an ye no. Nay likely her length. This is so much fun.',
                     imagePath: 'assets/images/blog_04.png',
                   ),
                 ],
@@ -144,18 +162,21 @@ class ReuseableBlogContainer extends StatelessWidget {
     return Container(
       width: screenSize.width >= 768
           ? screenSize.width * 0.28
-          : screenSize.width * 0.8,
-      height: screenSize.height * 0.6,
+          : screenSize.width * 0.85,
       color: Colors.white,
-      padding: EdgeInsets.all(
-        screenSize.width * 0.015,
+      padding: EdgeInsets.symmetric(
+        horizontal: screenSize.width * 0.02,
+        vertical: screenSize.height * 0.02,
       ),
       margin: EdgeInsets.only(
         right: screenSize.width >= 768 ? screenSize.width * 0.02 : 0.0,
+        bottom: screenSize.width >= 768
+            ? screenSize.width * 0.0
+            : screenSize.width * 0.02,
       ),
-      child: Flex(
-        direction: screenSize.width >= 768 ? Axis.vertical : Axis.horizontal,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,30 +185,41 @@ class ReuseableBlogContainer extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: screenSize.height * 0.02,
                 ),
-                child: Text(
+                child: const Text(
                   'BEST PRACTICES',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: screenSize.width * 0.01,
+                    fontSize: 12,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
-              Text(
-                titleText,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: screenSize.width * 0.015,
-                  fontWeight: FontWeight.w700,
+              Container(
+                width: screenSize.width >= 768
+                    ? screenSize.width * 0.25
+                    : screenSize.width * 0.8,
+                color: Colors.transparent,
+                padding: EdgeInsets.only(
+                    bottom: screenSize.width >= 768
+                        ? 0.0
+                        : screenSize.width * 0.02),
+                child: Text(
+                  titleText,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ],
           ),
           Image.asset(
             imagePath,
-            width: screenSize.width * 0.28,
-            height: screenSize.height * 0.4,
-            fit: BoxFit.fitHeight,
+            width: screenSize.width >= 768
+                ? screenSize.width * 0.28
+                : screenSize.width * 0.8,
+            fit: screenSize.width >= 768 ? BoxFit.fitHeight : BoxFit.fitWidth,
             alignment: Alignment.bottomCenter,
           ),
         ],
