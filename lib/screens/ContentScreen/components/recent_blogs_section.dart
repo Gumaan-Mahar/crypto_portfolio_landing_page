@@ -31,16 +31,15 @@ class RecentBlogSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: screenSize.width >= 768
-                    ? screenSize.width * 0.8
-                    : screenSize.width * 0.85,
-                height: screenSize.width >= 768
-                    ? screenSize.height * 0.3
-                    : screenSize.height * 0.55,
+                width: screenSize.width * 0.85,
                 color: Colors.white,
                 padding: EdgeInsets.only(
                   bottom:
                       screenSize.width >= 768 ? 0.0 : screenSize.width * 0.02,
+                  left: screenSize.width * 0.02,
+                  right:
+                      screenSize.width >= 768 ? 0.0 : screenSize.width * 0.02,
+                  top: screenSize.width >= 768 ? 0.0 : screenSize.width * 0.02,
                 ),
                 margin: EdgeInsets.symmetric(
                   vertical: screenSize.height * 0.04,
@@ -48,56 +47,67 @@ class RecentBlogSection extends StatelessWidget {
                 child: Flex(
                   direction:
                       screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: screenSize.width >= 768
-                          ? screenSize.width * 0.5
-                          : screenSize.width * 0.8,
-                      color: Colors.transparent,
-                      alignment: Alignment.centerLeft,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    bottom: screenSize.height * 0.02),
-                                child: const Text(
-                                  'BEST PRACTICES',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700),
-                                ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: screenSize.height * 0.02,
+                                top: screenSize.width >= 768
+                                    ? screenSize.height * 0.02
+                                    : 0.0,
                               ),
-                              const Text(
-                                'In design active template  be uneasy. Thirty for remove plenty regard',
+                              child: const Text(
+                                'BEST PRACTICES',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                            Container(
+                              width: screenSize.width >= 768
+                                  ? screenSize.width * 0.5
+                                  : screenSize.width * 0.8,
+                              padding: EdgeInsets.only(
+                                bottom: screenSize.width >= 768
+                                    ? screenSize.height * 0.2
+                                    : screenSize.height * 0.02,
+                              ),
+                              color: Colors.transparent,
+                              child: const Text(
+                                'In design active template  be uneasy. Thirty for remove plenty regard. Checking whether or not the text overflows.',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700),
                               ),
-                            ],
-                          ),
-                          screenSize.width >= 768
-                              ? Row(
-                                  children: const [
-                                    Text(
-                                      'Read More',
-                                      style: TextStyle(color: Colors.black26),
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.black26,
-                                    ),
-                                  ],
-                                )
-                              : const SizedBox.shrink(),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                        screenSize.width >= 768
+                            ? Row(
+                                children: const [
+                                  Text(
+                                    'Read More',
+                                    style: TextStyle(color: Colors.black38),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.black38,
+                                  ),
+                                ],
+                              )
+                            : const SizedBox.shrink(),
+                      ],
                     ),
                     Image.asset(
                       'assets/images/blog_01.png',
@@ -109,7 +119,7 @@ class RecentBlogSection extends StatelessWidget {
                           : Alignment.center,
                       fit: screenSize.width >= 768
                           ? BoxFit.fitWidth
-                          : BoxFit.fitHeight,
+                          : BoxFit.fitWidth,
                     ),
                   ],
                 ),
@@ -201,8 +211,8 @@ class ReuseableBlogContainer extends StatelessWidget {
                 color: Colors.transparent,
                 padding: EdgeInsets.only(
                     bottom: screenSize.width >= 768
-                        ? 0.0
-                        : screenSize.width * 0.02),
+                        ? screenSize.height * 0.02
+                        : screenSize.height * 0.02),
                 child: Text(
                   titleText,
                   style: const TextStyle(

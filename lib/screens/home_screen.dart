@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
                 appBar: constraints.maxWidth >= 768
                     ? null
                     : AppBar(
+                        backgroundColor: appBarColor,
                         leadingWidth: constraints.maxWidth < 345 ? 45 : 60,
                         title: Text(
                           titleText,
@@ -50,21 +51,27 @@ class HomeScreen extends StatelessWidget {
                 drawer: constraints.maxWidth >= 580
                     ? const SizedBox.shrink()
                     : Drawer(
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: Colors.white,
                         child: ListView(
                           children: [
                             const DrawerHeader(
                               decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: appBarColor,
                               ),
                               child: Text('Drawer Header'),
                             ),
                             ListTile(
-                              title: const Text('Product'),
+                              title: const Text(
+                                'Product',
+                                style: TextStyle(color: Colors.black),
+                              ),
                               onTap: () {},
                             ),
                             ListTile(
-                              title: const Text('Template'),
+                              title: const Text(
+                                'Template',
+                                style: TextStyle(color: Colors.black),
+                              ),
                               onTap: () {},
                             ),
                           ],
@@ -79,7 +86,9 @@ class HomeScreen extends StatelessWidget {
                       ContentScreen(
                         labelText: titleText,
                       ),
-                      const FooterScreen(),
+                      FooterScreen(
+                        titleText: titleText,
+                      ),
                     ],
                   ),
                 ),

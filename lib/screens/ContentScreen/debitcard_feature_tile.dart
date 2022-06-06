@@ -26,7 +26,6 @@ class DebitCardFeautreTile extends StatelessWidget {
             width: screenSize.width >= 768
                 ? screenSize.width * 0.5
                 : screenSize.width * 0.8,
-            height: screenSize.height * 0.35,
             color: Colors.transparent,
             padding: EdgeInsets.symmetric(
                 horizontal: screenSize.width >= 768
@@ -50,9 +49,13 @@ class DebitCardFeautreTile extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: Colors.black),
                 ),
-                const Text(
-                  'Why kept every ever home easy. Considered sympathize ten uncommonly occasional assistence sufficient not. Letter of on become he tended active enabled to.',
-                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: screenSize.height * 0.02),
+                  child: const Text(
+                    'Why kept every ever home easy. Considered sympathize ten uncommonly occasional assistence sufficient not. Letter of on become he tended active enabled to.',
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
                 ),
                 CustomElevatedButton(
                   handleOnPressed: () {},

@@ -13,9 +13,6 @@ class ServicesSection extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     return Container(
       width: screenSize.width,
-      height: screenSize.width >= 768
-          ? screenSize.height * 0.8
-          : screenSize.height * 1.2,
       color: primaryColor,
       child: Padding(
         padding: EdgeInsets.only(
@@ -24,20 +21,23 @@ class ServicesSection extends StatelessWidget {
             right: screenSize.width * 0.02,
             bottom: screenSize.width * 0.02),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Flex(
               direction:
-                  screenSize.width >= 480 ? Axis.horizontal : Axis.vertical,
+                  screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: screenSize.width >= 480
+                  width: screenSize.width >= 768
                       ? screenSize.width * 0.6
                       : screenSize.width * 0.9,
                   color: Colors.transparent,
                   padding: EdgeInsets.only(
-                      bottom: screenSize.width <= 480 ? 16.0 : 0.0),
+                      bottom: screenSize.width >= 768
+                          ? 0.0
+                          : screenSize.height * 0.08),
                   alignment: Alignment.center,
                   child: Text(
                     "Yet preference connection unpleasant yet melancholy but end appearence",
@@ -53,88 +53,92 @@ class ServicesSection extends StatelessWidget {
                   padding: EdgeInsets.only(
                     right:
                         screenSize.width >= 480 ? screenSize.width * 0.02 : 0.0,
-                    bottom:
-                        screenSize.width >= 480 ? screenSize.width * 0.02 : 0.0,
+                    bottom: screenSize.width >= 480
+                        ? screenSize.width * 0.02
+                        : screenSize.height * 0.02,
                   ),
                   child: CustomElevatedButton(
                       handleOnPressed: () {}, labelText: 'Get Started Now'),
                 ),
               ],
             ),
-            Expanded(
-              child: Flex(
-                direction:
-                    screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
+            Flex(
+              direction:
+                  screenSize.width >= 768 ? Axis.horizontal : Axis.vertical,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ReuseableSerialNoContainer(
+                            screenSize: screenSize,
+                            sNo: '1',
+                          ),
+                          ReuseableTextContainer(
+                            screenSize: screenSize,
+                            labelText: 'First Working Process',
+                            descriptionText:
+                                'Blessing it ladyship on sensible judgement setting outweigh.',
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ReuseableSerialNoContainer(
+                            screenSize: screenSize,
+                            sNo: '2',
+                          ),
+                          ReuseableTextContainer(
+                            screenSize: screenSize,
+                            labelText: 'Dedicated Team',
+                            descriptionText:
+                                'Warmly little before cousin sussex entire man set.',
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 16.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ReuseableSerialNoContainer(
-                                screenSize: screenSize,
-                                sNo: '1',
-                              ),
-                              ReuseableTextContainer(
-                                screenSize: screenSize,
-                                labelText: 'First Working Process',
-                                descriptionText:
-                                    'Blessing it ladyship on sensible judgement setting outweigh.',
-                              ),
-                            ],
-                          ),
+                        ReuseableSerialNoContainer(
+                          screenSize: screenSize,
+                          sNo: '3',
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 16.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ReuseableSerialNoContainer(
-                                screenSize: screenSize,
-                                sNo: '2',
-                              ),
-                              ReuseableTextContainer(
-                                screenSize: screenSize,
-                                labelText: 'Dedicated Team',
-                                descriptionText:
-                                    'Warmly little before cousin sussex entire man set.',
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ReuseableSerialNoContainer(
-                              screenSize: screenSize,
-                              sNo: '3',
-                            ),
-                            ReuseableTextContainer(
-                              screenSize: screenSize,
-                              labelText: '24/7 Hours Support',
-                              descriptionText:
-                                  'And excellence partiality estimating terminated day everything.',
-                            ),
-                          ],
+                        ReuseableTextContainer(
+                          screenSize: screenSize,
+                          labelText: '24/7 Hours Support',
+                          descriptionText:
+                              'And excellence partiality estimating terminated day everything.',
                         ),
                       ],
                     ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: screenSize.width >= 768
+                        ? 0.0
+                        : screenSize.height * 0.08,
                   ),
-                  Expanded(
-                    child: Image.asset(
-                      'assets/images/Group_282.png',
-                      width: screenSize.width >= 768
-                          ? screenSize.width * 0.4
-                          : screenSize.width,
-                    ),
+                  child: Image.asset(
+                    'assets/images/Group_282.png',
+                    width: screenSize.width >= 768
+                        ? screenSize.width * 0.4
+                        : screenSize.width,
+                    fit: BoxFit.fitWidth,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
